@@ -1,9 +1,9 @@
-import cors from "cors";
-import express, { NextFunction, Request, Response } from "express";
+import cors from 'cors';
+import express, { NextFunction, Request, Response } from 'express';
 
-import "express-async-errors";
-import "reflect-metadata";
-import AppError from "../../errors/AppError";
+import 'express-async-errors';
+import 'reflect-metadata';
+import AppError from '../../errors/AppError';
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(express.json());
 app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
   if (err instanceof AppError) {
     return response.status(err.statusCode).json({
-      status: "error",
+      status: 'error',
       message: err.message,
     });
   }
@@ -21,8 +21,8 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
   console.log(err);
 
   return response.status(500).json({
-    status: "error",
-    message: "Internal server error",
+    status: 'error',
+    message: 'Internal server error',
   });
 });
 
