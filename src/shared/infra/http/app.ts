@@ -4,8 +4,11 @@ import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
 import 'reflect-metadata';
 import AppError from '../../errors/AppError';
+import createConnection from '../typeorm';
 
 const app = express();
+
+createConnection();
 
 app.use(cors());
 app.use(express.json());
