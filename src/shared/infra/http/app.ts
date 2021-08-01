@@ -5,6 +5,7 @@ import 'express-async-errors';
 import 'reflect-metadata';
 import AppError from '../../errors/AppError';
 import createConnection from '../typeorm';
+import routes from './routes';
 
 const app = express();
 
@@ -12,6 +13,8 @@ createConnection();
 
 app.use(cors());
 app.use(express.json());
+
+app.use(routes);
 
 app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
   if (err instanceof AppError) {
