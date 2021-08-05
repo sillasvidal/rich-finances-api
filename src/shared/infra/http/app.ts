@@ -1,11 +1,13 @@
 import cors from 'cors';
-import express, { Request, Response } from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 
 import 'express-async-errors';
 import 'reflect-metadata';
 import AppError from '../../errors/AppError';
 import createConnection from '../typeorm';
 import routes from './routes';
+
+import '@shared/container';
 
 const app = express();
 
@@ -16,7 +18,8 @@ app.use(express.json());
 
 app.use(routes);
 
-app.use((err: Error, request: Request, response: Response) => {
+// eslint-disable-next-line
+app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
   if (err instanceof AppError) {
     return response.status(err.statusCode).json({
       status: 'error',

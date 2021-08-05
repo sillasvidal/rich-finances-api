@@ -20,6 +20,10 @@ export default class CreateUsersTable1628197254014
             type: 'varchar',
           },
           {
+            name: 'surname',
+            type: 'varchar',
+          },
+          {
             name: 'email',
             type: 'varchar',
           },
