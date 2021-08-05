@@ -7,6 +7,8 @@ import AppError from '../../errors/AppError';
 import createConnection from '../typeorm';
 import routes from './routes';
 
+import '@shared/container';
+
 const app = express();
 
 createConnection();
@@ -16,6 +18,7 @@ app.use(express.json());
 
 app.use(routes);
 
+// eslint-disable-next-line
 app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
   if (err instanceof AppError) {
     return response.status(err.statusCode).json({

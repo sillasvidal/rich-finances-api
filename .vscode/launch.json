@@ -1,0 +1,44 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Launch Program",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}₢",
+      "preLaunchTask": "tsc: build - tsconfig.json",
+      "outFiles": [
+        "${workspaceFolder}/dist/**/*.js"
+      ]
+    },
+    {
+      "command": "cd ${workspaceFolder} && yarn dev:server",
+      "name": "api-offer-develop:build-and-run",
+      "request": "launch",
+      "type": "node-terminal",
+      "env": {
+        "APP_VERSION": "1.3.0",
+        "APP_NAME": "API Offer",
+        "APP_DESCRIPTION": "API de Ofertas",
+        "APP_ENVIRONMENT": "A GAMBI TÁ AQUI",
+        "PORT": "8019",
+        "URL_API": "http://api-offer-desenvolvimento.pebmed.com.br",
+        "URL_API_AUTH": "http://api-auth-desenvolvimento.pebmed.com.br",
+        "LOG_APP_NAME": "api_offer",
+        "LOG_HOST": "log",
+        "DB_HOST": "localhost",
+        "DB_NAME": "pebmedapps",
+        "DB_PORT": "32767",
+        "DB_USER": "develop",
+        "DB_PASSWORD": "qHsonkYHOFW1Q",
+        "DB_CONN_POOL": "5"
+      }
+    },
+  ]
+}
