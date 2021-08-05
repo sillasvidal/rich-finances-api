@@ -6,7 +6,8 @@
   "author": "Sillas Vidal <sillasv91@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts"
+    "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
+    "typeorm": "ts-node-dev  -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
