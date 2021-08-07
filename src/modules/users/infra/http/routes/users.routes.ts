@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 import { UsersController } from '../controllers/UsersController';
-import { UserValidation } from '../validations/UserValidation';
+import { UserValidation } from '../middlewares/UserValidation';
 
 export const usersRouter = Router();
 const usersController = new UsersController();
