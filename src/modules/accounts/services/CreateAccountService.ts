@@ -1,5 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
+import AppError from '@shared/errors/AppError';
+
 import { Account } from '../infra/typeorm/entities/Account';
 import { IAccountsRepository } from '../repositories/IAccountsRepository';
 
@@ -25,6 +27,12 @@ export class CreateAccountService {
     balance,
     user_id,
   }: IRequest): Promise<Account> {
+    const checkAccountExists = await this.accountsRepository.findByName(name);
+
+    if (checkAccountExists) {
+      throw new AppError('Account name already registered', 400);
+    }
+
     const account = await this.accountsRepository.create({
       name,
       description,
