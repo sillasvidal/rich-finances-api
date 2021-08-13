@@ -24,4 +24,14 @@ export class AccountsRepository implements IAccountsRepository {
 
     return account;
   }
+
+  async findByName(name: string): Promise<Account | undefined> {
+    const findAccount = await this.ormRepository.findOne({
+      where: {
+        name,
+      },
+    });
+
+    return findAccount;
+  }
 }
