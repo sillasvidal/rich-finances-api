@@ -32,7 +32,7 @@ export class CreateAccountsTable1628288996346 implements MigrationInterface {
           },
           {
             name: 'balance',
-            type: 'decimal',
+            type: 'numeric',
           },
           {
             name: 'user_id',
